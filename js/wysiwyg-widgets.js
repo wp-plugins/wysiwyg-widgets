@@ -7,8 +7,10 @@ jQuery(document).ready(function(){
 	jQuery('.wysiwyg-overlay-toggle').live('click',function() {
 		ww_clicked_textarea = jQuery(this).attr('id');
 		tinyMCE.execInstanceCommand('wysiwyg-textarea','mceSetContent',false,ww_nl2br(jQuery(this).val()),true);
-		switchEditors.go('wysiwyg-textarea', 'html'); switchEditors.go('wysiwyg-textarea', 'tinymce');
-		jQuery("#wysiwyg-widgets-overlay-bg,#wysiwyg-widgets-window").fadeIn(400);
+		
+		jQuery("#wysiwyg-widgets-overlay-bg,#wysiwyg-widgets-window").fadeIn(400,function() {
+			switchEditors.go('wysiwyg-textarea', 'html'); switchEditors.go('wysiwyg-textarea', 'tinymce');
+		});
 	});
 	
 	jQuery('#wysiwyg-send-to-widget').click(function() {

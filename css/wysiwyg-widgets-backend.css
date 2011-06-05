@@ -6,7 +6,7 @@
 #wysiwyg-widgets-title div.close{ float: right; padding: 6px 10px 0; text-align: right; cursor:pointer; }
 #wysiwyg-widgets-content{ height:95%; overflow-y:scroll; padding:5px;}
 
-#wysiwyg-textarea{ border:0; max-width:99%; }
+#wysiwyg-textarea{ border:0; width:640px; }
 
 #editorcontainer{ border-color: #DFDFDF;}
 #editor-toolbar{ height:30px; }

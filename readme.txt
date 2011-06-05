@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce
 Requires at least: 2.8
 Tested up to: 3.1.3
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
@@ -26,7 +26,7 @@ the WYSIWYG / rich-text editor and the ability to insert media into your widget.
 **More info:**
 
 * [WYSIWYG Widgets](http://dannyvankooten.com/wordpress-plugins/wysiwyg-widgets/)
-* Check out more [WordPress plugins](http://dannyvankooten.com/wordpress/) by the same author
+* Check out more [WordPress plugins](http://dannyvankooten.com/wordpress-plugins/) by the same author
 * Follow me on Twitter for lightning fast support and updates: [@DannyvanKooten](http://twitter.com/dannyvankooten)
 
 == Installation ==
@@ -57,6 +57,9 @@ Yes, all the default options that you are used to from the post editor are avail
 1. The rich text / wysiwyg widget editor in action
 
 == Changelog ==
+
+= 1.0.1 =
+* Fixed the default title, it's now an empty string. ('')
 
 = 1.0 = 
 * Initial release

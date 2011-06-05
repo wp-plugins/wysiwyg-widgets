@@ -36,12 +36,10 @@ if(!class_exists('WYSIWYG_Widget')) {
 		}
 
 		function form($instance) {	
-			$defaults = array( 'title' => 'Sign up for our newsletter!', 'email_label' => 'Email Address', 'name_label' => 'Name', 'text_after_signup' => 'Thanks for signing up to our newsletter!', 'text_before_form' => '', 'load_widget_styles' => 1);
-			$instance = wp_parse_args( (array) $instance, $defaults );		
-			
-			$baseurl = includes_url('js/tinymce');
-			
-			extract($instance);
+						
+			$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
+			$title = strip_tags($instance['title']);
+			$text = esc_textarea($instance['text']);
 
 			?>
 			 <p>

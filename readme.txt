@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce
 Requires at least: 2.8
 Tested up to: 3.1.3
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
@@ -58,8 +58,14 @@ Yes, all the default options that you are used to from the post editor are avail
 
 == Changelog ==
 
+= 1.0.2 =
+* Bugfix: Fixed undefined index in dvk-plugin-admin.php
+* Bugfix: Removed `esc_textarea` which caused TinyMCE to break
+* Improvement: Added a widget description
+* Improvement: Now using the correct way to set widget form width and height
+
 = 1.0.1 =
-* Fixed the default title, it's now an empty string. ('')
+* Bugfix: Fixed the default title, it's now an empty string. ('')
 
 = 1.0 = 
 * Initial release

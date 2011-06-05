@@ -7,7 +7,10 @@ if(!class_exists('WYSIWYG_Widget')) {
 		var $options;
 		
 		function __construct() {
-			parent::__construct(false, $name = 'WYSIWYG Widget');
+			$widget_ops = array('classname' => 'wysiwyg_widget', 'description' => __('A widget with a WYSIWYG / Rich Text editor - supports media uploading'));
+			$control_ops = array('width' => 400, 'height' => 350);
+		
+			parent::__construct(false, 'WYSIWYG Widget', $widget_ops, $control_ops);
 		}
 
 		function widget($args, $instance) {	
@@ -39,7 +42,7 @@ if(!class_exists('WYSIWYG_Widget')) {
 						
 			$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
 			$title = strip_tags($instance['title']);
-			$text = esc_textarea($instance['text']);
+			$text = $instance['text'];
 
 			?>
 			 <p>
@@ -49,15 +52,9 @@ if(!class_exists('WYSIWYG_Widget')) {
 			
 			
 			<label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Text:'); ?></label> 
-			<div id="wysiwyg-editor-wrap">
-				<textarea class="wysiwyg-overlay-toggle widefat" rows="16" cols="20" name="<?php echo $this->get_field_name('text'); ?>" id="<?php echo $this->get_field_id('text'); ?>"><?php if(isset($text)) echo $text; ?></textarea>
-			</div>
+			<textarea class="wysiwyg-overlay-toggle widefat" rows="16" cols="20" name="<?php echo $this->get_field_name('text'); ?>" id="<?php echo $this->get_field_id('text'); ?>"><?php if(isset($text)) echo $text; ?></textarea>
 			
 			<p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs'); ?></label></p>
-		
-			
-			<input class="widget-width" type="hidden" value="400" name="widget-width">
-			<input class="widget-height" type="hidden" value="350" name="widget-height">
 			
 			
 			<?php 

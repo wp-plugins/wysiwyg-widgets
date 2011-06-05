@@ -269,7 +269,7 @@ if(!class_exists('DvK_Plugin_Admin')) {
 				$this->options['date_installed'] = strtotime('now');
 				update_option($this->optionname,$this->options);
 				
-			} elseif(!isset($this->options['dontshowpopup']) && $this->options['dontshowpopup'] != 1 && $this->options['date_installed'] < strtotime('-30 days')) {
+			} elseif(!isset($this->options['dontshowpopup']) && $this->options['date_installed'] < strtotime('-30 days')) {
 				// plugin has been installed for over 30 days
 				$this->actions['show_donate_box'] = true;
 				wp_enqueue_style('dvk_donate', plugins_url('/css/donate.css',dirname(__FILE__)));

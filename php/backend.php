@@ -22,6 +22,9 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 				$this->add_hooks();
 				$this->load_scripts();
 				$this->check_usage_time();
+			} elseif($pagenow == 'media-upload.php' || 'async-upload.php' == $pagenow) {
+				// add action to remove 'from url' tab
+				// add_filter( 'media_upload_tabs', array(&$this, 'media_upload_tabs' ) );
 			}
 		}
 		
@@ -31,6 +34,7 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 			add_action('admin_footer',array(&$this,'add_overlay'));
 			add_action( 'admin_print_footer_scripts', 'wp_tiny_mce_preload_dialogs', 30 );
 			add_action( 'tiny_mce_preload_dialogs', 'wp_link_dialog', 30 );
+			
 		}
 		
 		/* Load scripts and styles for plugin usage */
@@ -62,6 +66,14 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 				
 				wp_tiny_mce( false );
 			}
+		}
+		
+		/**
+		* Remove the 'From URL' Tab untill that functionality is added.
+		*/
+		function media_upload_tabs($tabs) {
+			unset($tabs['type_url']);
+		return $tabs;
 		}
 		
 		/**

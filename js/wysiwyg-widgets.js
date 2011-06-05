@@ -46,5 +46,5 @@ function ww_updateOverlaySize() {
 		top: '20px'
 	});
 	
-	jQuery("#wysiwyg-textarea_ifr").height(jQuery('#wysiwyg-widgets-content').height() - 100);
+	jQuery("#wysiwyg-textarea_ifr").height(jQuery('#wysiwyg-widgets-content').height() - 150);
 }

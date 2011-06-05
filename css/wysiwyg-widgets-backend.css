@@ -1,6 +1,6 @@
 #wysiwyg-widgets-overlay-bg{ height: 100%; left: 0; position: fixed; top: 0; width: 100%; z-index: 50; background-color: #000000; opacity: 0.75; display:none;}
 #wysiwyg-widgets-window{ background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #555555; box-shadow: 0 4px 30px #000000; color: #000000; display: none;
-    left: 50%; position: fixed; text-align: left; top: 50%; z-index: 52; width: 670px; margin-left:-335px; overflow:hidden; }
+    left: 50%; position: fixed; text-align: left; top: 50%; z-index: 52; min-height:400px; width: 670px; margin-left:-335px; overflow:hidden; }
 #wysiwyg-widgets-title{ background-color: #222222; color: #CFCFCF; height:27px; }
 #wysiwyg-widgets-title div.title{ float: left; padding: 6px 10px 0; }
 #wysiwyg-widgets-title div.close{ float: right; padding: 6px 10px 0; text-align: right; cursor:pointer; }

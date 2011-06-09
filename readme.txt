@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce
 Requires at least: 2.8
 Tested up to: 3.1.3
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 
 Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
@@ -57,10 +57,16 @@ Yes, all the default options that you are used to from the post editor are avail
 1. The rich text / wysiwyg widget editor in action
 
 == Changelog ==
+= 1.0.3 =
+* Bugfix: Hided the #wp-link block, was appearing in footer on widgets.php page.
+* Improvement: Removed buttons added by external plugins, most likely causing issues. (eg Jetpack)
+* Improvement: Increase textarea size after opening WYSIWYG overlay.
+* Improvement: Use 'escape' key to close WYSIWYG editor overlay without saving changes.
 
 = 1.0.2 =
 * Bugfix: Fixed undefined index in dvk-plugin-admin.php
 * Bugfix: Removed `esc_textarea` which caused TinyMCE to break
+* Improvement: Minor CSS and JS improvements, 'Send to widget' button is now always visible
 * Improvement: Added a widget description
 * Improvement: Now using the correct way to set widget form width and height
 

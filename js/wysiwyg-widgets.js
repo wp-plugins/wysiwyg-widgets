@@ -4,13 +4,15 @@ jQuery(document).ready(function(){
 	
 	jQuery(window).resize(function() { ww_updateOverlaySize(); });
 	
+	
+	
 	jQuery('.wysiwyg-overlay-toggle').live('click',function() {
 		ww_clicked_textarea = jQuery(this).attr('id');
 		tinyMCE.execInstanceCommand('wysiwyg-textarea','mceSetContent',false,ww_nl2br(jQuery(this).val()),true);
-		
 		jQuery("#wysiwyg-widgets-overlay-bg,#wysiwyg-widgets-window").fadeIn(400,function() {
 			switchEditors.go('wysiwyg-textarea', 'html'); switchEditors.go('wysiwyg-textarea', 'tinymce');
 		});
+		ww_updateOverlaySize();
 	});
 	
 	jQuery('#wysiwyg-send-to-widget').click(function() {
@@ -19,16 +21,24 @@ jQuery(document).ready(function(){
 		ww_closeOverlay();
 	});
 	
+	jQuery(document).keyup(function(e) {
+		if (e.keyCode == 27) { ww_askToClose(); } 
+	});
 	jQuery("#wysiwyg-widgets-window .close").click(function() {
-		var sure = confirm("Closing the WYSYWIG Widgets overlay will discard any changes that have been made. Really close?");
-		if(sure) {
-			ww_closeOverlay();
-		}
+		ww_askToClose();
 	});
 	
 	ww_updateOverlaySize();
 	
 });
+
+function ww_askToClose()
+{
+	var sure = confirm("Closing the WYSYWIG Widgets overlay will discard any changes that have been made. Really close?");
+	if(sure) {
+		ww_closeOverlay();
+	}
+}
 
 function ww_nl2br (str) {   
 	var breakTag = '<br />';
@@ -46,5 +56,5 @@ function ww_updateOverlaySize() {
 		top: '20px'
 	});
 	
-	jQuery("#wysiwyg-textarea_ifr").height(jQuery('#wysiwyg-widgets-content').height() - 150);
+	jQuery("#wysiwyg-textarea_ifr").height(jQuery('#wysiwyg-widgets-content').height() - 160);
 }

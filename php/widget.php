@@ -16,12 +16,13 @@ if(!class_exists('WYSIWYG_Widget')) {
 		function widget($args, $instance) {	
 			
 			extract( $args );
-			extract($instance);
+			$title = apply_filters( 'widget_title', empty($instance['title']) ? '' : $instance['title'], $instance, $this->id_base);
+			$text = apply_filters( 'widget_text', $instance['text'], $instance );
 
 			?>
 				  <?php echo $before_widget; ?>
 					  <?php if ( !empty( $title ) ) { echo $before_title . $title . $after_title; } ?>
-						<div class="wysiwyg-widget-content"><?php echo $instance['filter'] ? wpautop($text) : $text; ?></div>
+						<div class="wysiwyg-widget-content"><?php $instance['filter'] ? _e(wpautop($text),'wysiwyg-widgets') : _e($text,'wysiwyg-widgets'); ?></div>
 				  <?php echo $after_widget; ?>
 			<?php
 		}

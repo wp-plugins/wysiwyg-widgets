@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce
 Requires at least: 2.8
 Tested up to: 3.1.3
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
@@ -21,7 +21,7 @@ the WYSIWYG / rich-text editor and the ability to insert media into your widget.
 * Insert media like images or video into your widgets
 * Create stunning widget content without having to know any HTML
 * Create easy lists in your widgets
-* Use WP Links to easily link to any of your pages or posts from a widget
+* Use WP Links dialog to easily link to any of your pages or posts from a widget
 
 **More info:**
 
@@ -57,6 +57,12 @@ Yes, all the default options that you are used to from the post editor are avail
 1. The rich text / wysiwyg widget editor in action
 
 == Changelog ==
+
+= 1.0.4 =
+* Cleaned up code
+* Improved loading of TinyMCE
+* Fixed issue with RTL installs
+
 = 1.0.3 =
 * Bugfix: Hided the #wp-link block, was appearing in footer on widgets.php page.
 * Improvement: Removed buttons added by external plugins, most likely causing issues. (eg Jetpack)

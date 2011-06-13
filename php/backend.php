@@ -20,7 +20,6 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 			// Only load stuff on widgets page
 			if($pagenow == 'widgets.php') {
 				$this->add_hooks();
-				$this->load_scripts();
 				$this->check_usage_time();
 			} 
 		}
@@ -28,17 +27,25 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 		function add_hooks()
 		{
 			add_action("admin_head",array(&$this,"load_tiny_mce"));
+			add_action('admin_init',array(&$this,"load_scripts"));
 			add_action('admin_footer',array(&$this,'add_overlay'));
-			add_action( 'admin_print_footer_scripts', 'wp_tiny_mce_preload_dialogs', 30 );
-			add_action( 'tiny_mce_preload_dialogs', 'wp_link_dialog', 30 );
-			
+			add_action('admin_print_footer_scripts', 'wp_tiny_mce_preload_dialogs');
 		}
 		
 		/* Load scripts and styles for plugin usage */
 		function load_scripts()
 		{
-			wp_enqueue_script(array('jquery'));
+			// scripts
+			wp_enqueue_script(array(
+				'jquery',
+				'editor',
+				'thickbox',
+				'media-upload'
+			)); 
 			wp_enqueue_script('wysiwyg-widgets', plugins_url('/js/wysiwyg-widgets.js',dirname(__FILE__)));
+			
+			// styles
+			wp_enqueue_style('thickbox');
 			wp_enqueue_style('wysiwyg-widgets', plugins_url('/css/wysiwyg-widgets-backend.css',dirname(__FILE__)));
 
 		}
@@ -46,20 +53,7 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 		/* Load the necessary tinymce and thickbox scripts */
 		function load_tiny_mce()
 		{
-			if(function_exists('wp_tiny_mce')) {
-				
-				wp_enqueue_script(array(
-					'editor',
-					'thickbox',
-					'media-upload'
-					)); 
-				do_action('admin_print_scripts');
-				
-				wp_admin_css();	
-				wp_enqueue_style('thickbox');
-				do_action('admin_print_styles');
-				do_action("admin_print_styles-post-php");
-				
+			if(function_exists('wp_tiny_mce')) {		
 				remove_all_filters('mce_external_plugins');
 				wp_tiny_mce( false );
 			}
@@ -87,7 +81,6 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 						</p>
 					</div>
 				</div>
-				<?php wp_link_dialog(); ?>
 			<?php 	if(isset($this->actions['show_donate_box']) && $this->actions['show_donate_box']) { $this->donate_popup(); } 
 		}
 		

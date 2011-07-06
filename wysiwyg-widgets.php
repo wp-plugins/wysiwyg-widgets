@@ -3,7 +3,7 @@
 Plugin Name: WYSIWYG Widgets
 Plugin URI: http://DannyvanKooten.com/wordpress-plugins/wysiwyg-widgets/
 Description: Adds a WYSIWYG Widget with a rich text editor and media upload functions.
-Version: 1.0.5
+Version: 1.0.6
 Author: Danny van Kooten
 Author URI: http://DannyvanKooten.com
 License: GPL2

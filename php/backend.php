@@ -30,10 +30,12 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 			add_action('admin_init',array(&$this,"load_scripts"));
 			add_action('admin_footer',array(&$this,'add_overlay'));
 			
+			if((int) get_bloginfo('version') >= 3.2) {
 			// wp_tiny_mce_preload_dialogs has been replaced by wp_preload_dialogs
 			// the_editor containts wp_quicktags which calls wp_preload_dialogs to load the link dialog
 			// so it's no longer necessary to manually add this function to the footer.
-			// add_action('admin_footer', 'wp_tiny_mce_preload_dialogs');
+				add_action('admin_footer', 'wp_tiny_mce_preload_dialogs');
+			}
 		}
 		
 		/* Load scripts and styles for plugin usage */

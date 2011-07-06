@@ -57,6 +57,8 @@ Yes, all the default options that you are used to from the post editor are avail
 1. The rich text / wysiwyg widget editor in action
 
 == Changelog ==
+= 1.0.6 =
+* Added backwards compatibility for WP installs below version 3.2 Sorry for the quick push!
 
 = 1.0.5 =
 * Fixed issue for WP3.2 installs, wp_tiny_mce_preload_dialogs is no valid callback. Function got renamed.

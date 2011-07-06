@@ -1,0 +1,17 @@
+#wysiwyg-widgets-overlay-bg{ height: 100%; left: 0; position: fixed; top: 0; width: 100%; z-index: 100; background-color: #000000; opacity: 0.75; display:none;}
+#wysiwyg-widgets-window{ background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #555555; box-shadow: 0 4px 30px #000000; color: #000000; display: none;
+    left: 50%; position: fixed; text-align: left; top: 50%; z-index: 101; min-height:400px; width: 670px; margin-left:-335px; overflow:hidden; }
+#wysiwyg-widgets-title{ background-color: #222222; color: #CFCFCF; height:27px; }
+#wysiwyg-widgets-title div.title{ float: left; padding: 6px 10px 0; }
+#wysiwyg-widgets-title div.close{ float: right; padding: 6px 10px 0; text-align: right; cursor:pointer; }
+#wysiwyg-widgets-content{ height:95%; overflow-y:scroll; padding:5px;}
+
+#wysiwyg-textarea{ position:relative; border:0; width:640px; }
+
+#editorcontainer{ border-color: #DFDFDF;}
+#editor-toolbar{ height:30px; }
+#edButtonPreview, #edButtonHTML {  background-color: #F1F1F1; border-color: #DFDFDF; color: #999999; }
+#edButtonHTML{ margin-right: 15px; }
+#editor-toolbar .active { background-color: #E9E9E9; border-bottom-color: #E9E9E9; color: #333333; }
+
+#wp-link{ display:none; }

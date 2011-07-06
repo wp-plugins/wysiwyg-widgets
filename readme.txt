@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce
 Requires at least: 2.8
 Tested up to: 3.1.3
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 
 Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
@@ -57,6 +57,9 @@ Yes, all the default options that you are used to from the post editor are avail
 1. The rich text / wysiwyg widget editor in action
 
 == Changelog ==
+
+= 1.0.5 =
+* Fixed issue for WP3.2 installs, wp_tiny_mce_preload_dialogs is no valid callback. Function got renamed.
 
 = 1.0.4 =
 * Cleaned up code

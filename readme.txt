@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce
 Requires at least: 2.8
 Tested up to: 3.1.3
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 
 Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
@@ -55,6 +55,12 @@ Yes, all the default options that you are used to from the post editor are avail
 == Screenshots ==
 
 1. The rich text / wysiwyg widget editor in action
+
+= 1.0.7 =
+* Fixed small bug that broke the WP link dialog for WP versions older then 3.2
+* Fixed issue with lists and weird non-breaking spaces
+* Added compatibility with Dean's FCKEditor for Wordpress plugin
+* Improved JS
 
 == Changelog ==
 = 1.0.6 =

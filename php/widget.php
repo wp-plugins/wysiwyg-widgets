@@ -22,7 +22,7 @@ if(!class_exists('WYSIWYG_Widget')) {
 			?>
 				  <?php echo $before_widget; ?>
 					  <?php if ( !empty( $title ) ) { echo $before_title . $title . $after_title; } ?>
-						<div class="wysiwyg-widget-content"><?php $instance['filter'] ? _e(wpautop($text),'wysiwyg-widgets') : _e($text,'wysiwyg-widgets'); ?></div>
+						<div class="wysiwyg-widget-content"><?php _e($text,'wysiwyg-widgets'); ?></div>
 				  <?php echo $after_widget; ?>
 			<?php
 		}
@@ -34,7 +34,6 @@ if(!class_exists('WYSIWYG_Widget')) {
 				$instance['text'] =  $new_instance['text'];
 			else
 				$instance['text'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['text']) ) ); // wp_filter_post_kses() expects slashed
-			$instance['filter'] = isset($new_instance['filter']);
 			
 			return $instance;
 		}
@@ -53,10 +52,7 @@ if(!class_exists('WYSIWYG_Widget')) {
 			
 			
 			<label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Text:'); ?></label> 
-			<textarea class="wysiwyg-overlay-toggle widefat" rows="16" cols="20" name="<?php echo $this->get_field_name('text'); ?>" id="<?php echo $this->get_field_id('text'); ?>"><?php if(isset($text)) echo $text; ?></textarea>
-			
-			<p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs'); ?></label></p>
-			
+			<textarea class="wysiwyg_overlay_toggle widefat" rows="16" cols="20" name="<?php echo $this->get_field_name('text'); ?>" id="<?php echo $this->get_field_id('text'); ?>"><?php if(isset($text)) echo $text; ?></textarea>			
 			
 			<?php 
 		}

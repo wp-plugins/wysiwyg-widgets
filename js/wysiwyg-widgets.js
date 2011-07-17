@@ -1,30 +1,28 @@
 jQuery(document).ready(function(){
 	
-	var ww_clicked_textarea = "";
+	var ww_clicked_textarea;
 	
 	jQuery(window).resize(function() { ww_updateOverlaySize(); });
 	
-	
-	
-	jQuery('.wysiwyg-overlay-toggle').live('click',function() {
-		ww_clicked_textarea = jQuery(this).attr('id');
-		tinyMCE.execInstanceCommand('wysiwyg-textarea','mceSetContent',false,ww_nl2br(jQuery(this).val()),true);
-		jQuery("#wysiwyg-widgets-overlay-bg,#wysiwyg-widgets-window").fadeIn(400,function() {
-			switchEditors.go('wysiwyg-textarea', 'html'); switchEditors.go('wysiwyg-textarea', 'tinymce');
+	jQuery('.wysiwyg_overlay_toggle').live('click',function() {
+		ww_clicked_textarea = jQuery(this);
+		tinyMCE.execInstanceCommand('wysiwyg_textarea','mceSetContent',false,jQuery(this).val(),true);
+		jQuery("#wysiwyg_widgets_overlay_bg,#wysiwyg_widgets_window").fadeIn(400,function() {
+			switchEditors.go('wysiwyg_textarea', 'html'); switchEditors.go('wysiwyg_textarea', 'tinymce');
 		});
 		ww_updateOverlaySize();
 	});
 	
-	jQuery('#wysiwyg-send-to-widget').click(function() {
+	jQuery('#wysiwyg_send_to_widget').click(function() {
 		tinyMCE.triggerSave();
-		jQuery('#'+ww_clicked_textarea).val(jQuery("#wysiwyg-textarea").val());
+		ww_clicked_textarea.val(jQuery("#wysiwyg_textarea").val());
 		ww_closeOverlay();
 	});
 	
 	jQuery(document).keyup(function(e) {
 		if (e.keyCode == 27) { ww_askToClose(); } 
 	});
-	jQuery("#wysiwyg-widgets-window .close").click(function() {
+	jQuery("#wysiwyg_widgets_window .close").click(function() {
 		ww_askToClose();
 	});
 	
@@ -40,21 +38,16 @@ function ww_askToClose()
 	}
 }
 
-function ww_nl2br (str) {   
-	var breakTag = '<br />';
-	return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
-}
-
 function ww_closeOverlay()
 {
-	jQuery("#wysiwyg-widgets-overlay-bg,#wysiwyg-widgets-window").fadeOut(400);
+	jQuery("#wysiwyg_widgets_overlay_bg,#wysiwyg_widgets_window").fadeOut(400);
 }
 
 function ww_updateOverlaySize() {
-	jQuery("#wysiwyg-widgets-window").css({
+	jQuery("#wysiwyg_widgets_window").css({
 		height: (jQuery(window).height() - 40),
 		top: '20px'
 	});
 	
-	jQuery("#wysiwyg-textarea_ifr").height(jQuery('#wysiwyg-widgets-content').height() - 160);
+	jQuery("#wysiwyg_textarea_ifr").height(jQuery('#wysiwyg_widgets_content').height() - 160);
 }

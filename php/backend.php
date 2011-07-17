@@ -23,18 +23,18 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 				$this->check_usage_time();
 			} 
 		}
-		
+				
 		function add_hooks()
 		{
 			add_action("admin_head",array(&$this,"load_tiny_mce"));
 			add_action('admin_init',array(&$this,"load_scripts"));
 			add_action('admin_footer',array(&$this,'add_overlay'));
 			
-			if((int) get_bloginfo('version') >= 3.2) {
-			// wp_tiny_mce_preload_dialogs has been replaced by wp_preload_dialogs
-			// the_editor containts wp_quicktags which calls wp_preload_dialogs to load the link dialog
-			// so it's no longer necessary to manually add this function to the footer.
-				add_action('admin_footer', 'wp_tiny_mce_preload_dialogs');
+			if((float) get_bloginfo('version') >= 3.2) {
+				// wp_tiny_mce_preload_dialogs has been replaced by wp_preload_dialogs
+				// the_editor containts wp_quicktags which calls wp_preload_dialogs to load the link dialog
+				// so it's no longer necessary to manually add this function to the footer.
+				//add_action('admin_footer', 'wp_tiny_mce_preload_dialogs');
 			}
 		}
 		
@@ -42,16 +42,11 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 		function load_scripts()
 		{
 			// scripts
-			wp_enqueue_script(array(
-				'jquery',
-				'editor',
-				'thickbox',
-				'media-upload'
-			)); 
+			add_thickbox();
+			wp_enqueue_script('media-upload');
 			wp_enqueue_script('wysiwyg-widgets', plugins_url('/js/wysiwyg-widgets.js',dirname(__FILE__)));
 			
 			// styles
-			wp_enqueue_style('thickbox');
 			wp_enqueue_style('wysiwyg-widgets', plugins_url('/css/wysiwyg-widgets-backend.css',dirname(__FILE__)));
 
 		}
@@ -59,9 +54,28 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 		/* Load the necessary tinymce and thickbox scripts */
 		function load_tiny_mce()
 		{
-			if(function_exists('wp_tiny_mce')) {		
-				remove_all_filters('mce_external_plugins');
-				wp_tiny_mce( false );
+			$temp_changed_rich_editing = false;
+			if ( !function_exists('wp_tiny_mce') ) include_once( ABSPATH . 'wp-admin/includes/post.php' );
+			
+			// Deans FCKeditor workaround
+			if(is_plugin_active('fckeditor-for-wordpress-plugin/deans_fckeditor.php')) {
+				
+				global $current_user;
+				$current_user =  wp_get_current_user();
+				
+				$old_rich_editing_value = get_user_option('rich_editing',$current_user->id);
+				
+				// Change rich_editing option
+				update_user_option($current_user->id, 'rich_editing', 'true', true);
+				$temp_changed_rich_editing = true;
+			}
+			
+			remove_all_filters('mce_external_plugins');
+			wp_tiny_mce(true,array('height' => 350));
+			
+			// if rich_editing value has been changed, reset it.
+			if($temp_changed_rich_editing) {
+				update_user_option($current_user->id, 'rich_editing', $old_rich_editing_value, true);
 			}
 		}
 		
@@ -71,18 +85,18 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 		function add_overlay()
 		{
 			?>
-			<div id="wysiwyg-widgets-overlay-bg"></div>
-				<div id="wysiwyg-widgets-window">
-					<div id="wysiwyg-widgets-title">
+			<div id="wysiwyg_widgets_overlay_bg"></div>
+				<div id="wysiwyg_widgets_window">
+					<div id="wysiwyg_widgets_title">
 						<div class="title">WYSIWYG Widgets - Editor</div>
 						<div class="close">
 							<img src="<?php bloginfo('wpurl'); ?>/wp-includes/js/thickbox/tb-close.png" alt="X" title="Close overlay, discards changes"/>
 						</div>
 					</div>
-					<div id="wysiwyg-widgets-content">
-						<?php the_editor('','wysiwyg-textarea'); ?>
+					<div id="wysiwyg_widgets_content">
+							<?php the_editor('','wysiwyg_textarea'); ?>
 						<p>
-							<input id="wysiwyg-send-to-widget" class="button-primary alignright" type="submit" value="<?php _e('Send to widget'); ?>" />
+							<input id="wysiwyg_send_to_widget" class="button-primary alignright" type="submit" value="<?php _e('Send to widget'); ?>" />
 							<br style="clear:both;" />
 						</p>
 					</div>
@@ -131,9 +145,5 @@ if(!class_exists('WYSIWYG_Widgets_Admin')) {
 		}
 
 	}
-	
-	
-	
-	
 	
 }

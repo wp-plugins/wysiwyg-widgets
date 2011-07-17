@@ -14,8 +14,7 @@ jQuery(document).ready(function(){
 	});
 	
 	jQuery('#wysiwyg_send_to_widget').click(function() {
-		tinyMCE.triggerSave();
-		ww_clicked_textarea.val(jQuery("#wysiwyg_textarea").val());
+		ww_clicked_textarea.val(tinyMCE.activeEditor.getContent());
 		ww_closeOverlay();
 	});
 	

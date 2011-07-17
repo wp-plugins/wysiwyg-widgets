@@ -56,6 +56,8 @@ Yes, all the default options that you are used to from the post editor are avail
 
 1. The rich text / wysiwyg widget editor in action
 
+== Changelog ==
+
 = 1.0.7 =
 * Fixed small bug that broke the WP link dialog for WP versions older then 3.2
 * Fixed issue with lists and weird non-breaking spaces
@@ -64,7 +66,6 @@ Yes, all the default options that you are used to from the post editor are avail
 
 **NOTE**: In this version some things were changed regarding the auto-paragraphing. This is now being handled by TinyMCE instead of WordPress, so when updating please run trough your widgets to correct this. :) 
 
-== Changelog ==
 = 1.0.6 =
 * Added backwards compatibility for WP installs below version 3.2 Sorry for the quick push!
 

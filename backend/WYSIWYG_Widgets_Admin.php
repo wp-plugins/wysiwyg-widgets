@@ -198,7 +198,7 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
             }
 
             // Over 30 days? Not set to don't show? Show the damn thing.
-            if (!isset($opts['dontshowpopup']) && $opts['date_installed'] > strtotime('-30 days')) {
+            if (!isset($opts['dontshowpopup']) && $opts['date_installed'] < strtotime('-30 days')) {
                 // plugin has been installed for over 30 days
                 $this->actions['show_donate_box'] = true;
                 wp_enqueue_style('dvk_donate', plugins_url('/backend/css/donate.css', dirname(__FILE__)));

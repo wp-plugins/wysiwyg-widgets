@@ -51,25 +51,25 @@ if (!class_exists('WYSIWYG_Widgets_Widget')) {
             
             ?>
             
-            <input id="<?php echo $this->get_field_id('type'); ?>" name="<?php echo $this->get_field_name('type'); ?>" type="hidden" value="<?php echo esc_attr($type); ?>" />
+            <input id="<?php echo $this->get_field_id('type'); ?>" name="<?php echo $this->get_field_name('type'); ?>" class="wwe_type" type="hidden" value="<?php echo esc_attr($type); ?>" />
            
             <p>
                 <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
                 <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
             </p>
             
-            <div class="editor_toolbar">
-                <div class="editor_toggle_buttons">
+            <div class="wwe_toolbar">
+                <div class="wwe_toggle_buttons">
                     <a id="widget-<?php echo $this->id_base; ?>-<?php echo $this->number; ?>-html"<?php if ($type == 'html') { ?> class="active"<?php } ?>><?php _e('HTML'); ?></a>
                     <a id="widget-<?php echo $this->id_base; ?>-<?php echo $this->number; ?>-visual"<?php if ($type == 'visual') { ?> class="active"<?php } ?>><?php _e('Visual'); ?></a>
                 </div>
 
-                <div class="editor_media_buttons">
+                <div class="wwe_media_buttons">
                     <?php do_action('media_buttons'); ?>
                 </div>
             </div>
-            <div class="editor_container">
-                <textarea class="widefat" rows="16" cols="40" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
+            <div class="wwe_container">
+                <textarea class="widefat wwe_editor" rows="16" cols="40" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
             </div>
             
             <?php

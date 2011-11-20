@@ -12,13 +12,13 @@
 	position:fixed;
 	left:50%;
 	top:50%;
-	width:300px;
-	height:220px;
+	width:400px;
+	height:300px;
 	padding:10px 25px;
-	margin-left:-175px;
-	margin-top:-135px;
+	margin-left:-225px;
+	margin-top:-160px;
 	background:white;
-	border:1px solid #DFDFDF;
+	border:2px solid #0099ff;
 	-moz-border-radius: 6px;
 	-khtml-border-radius: 6px;
 	-webkit-border-radius: 6px;
@@ -36,3 +36,7 @@
 	right:10px;
 	bottom:10px;
 }
+
+#dvk-donate-box p{ margin:5px 0 15px; }
+#dvk-donate-box form{ display:block; margin:10px 0; text-align:center; }
+#dvk-donate-box .twitter-share-button{ text-align:center; }

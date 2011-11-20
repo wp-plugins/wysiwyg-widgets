@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: DvanKooten
 Donate link: http://dannyvankooten.com/donate/
-Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce
+Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce,fckeditor
 Requires at least: 2.8
-Tested up to: 3.1.3
-Stable tag: 1.0.7
+Tested up to: 3.2.1
+Stable tag: 1.1
 
 Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
@@ -57,6 +57,13 @@ Yes, all the default options that you are used to from the post editor are avail
 1. The rich text / wysiwyg widget editor in action
 
 == Changelog ==
+= 1.1 =
+* Changed the way WYSIWYG Widget works, no more overlay, just a WYSIWYG editor in your widget form.
+* Fixed full-screen mode
+* Fixed link dialog for WP versions below 3.2
+* Fixed strange browser compatibility bug
+* Fixed inconstistent working
+* Added the ability to use shortcodes in WYSIWYG Widget's text
 
 = 1.0.7 =
 * Fixed small bug that broke the WP link dialog for WP versions older then 3.2

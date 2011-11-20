@@ -57,6 +57,7 @@ Yes, all the default options that you are used to from the post editor are avail
 1. The rich text / wysiwyg widget editor in action
 
 == Changelog ==
+
 = 1.1 =
 * Changed the way WYSIWYG Widget works, no more overlay, just a WYSIWYG editor in your widget form.
 * Fixed full-screen mode

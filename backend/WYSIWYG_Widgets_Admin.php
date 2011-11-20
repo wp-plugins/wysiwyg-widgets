@@ -13,10 +13,10 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
         function __construct() {
             // Add settings link to plugin page
             add_filter("plugin_action_links_{$this->filename}", array(&$this, 'add_settings_link'));
-            
+
             // Add DvK.com dashboard widget
             add_action('wp_dashboard_setup', array(&$this, 'widget_setup'));
-            
+
             // Remove options upon deactivation
             register_deactivation_hook($this->filename, array(&$this, 'remove_options'));
 
@@ -28,7 +28,7 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
                 $this->add_hooks();
             }
         }
-        
+
         /**
          * This function is called on the admin widget page
          * Adds the necessary hooks
@@ -38,19 +38,19 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
             add_action('admin_print_scripts', array(&$this, "load_scripts"));
             add_action('admin_print_styles', array(&$this, 'load_styles'));
             add_filter('tiny_mce_before_init', array(&$this, 'initialize_editor'), 20);
-            
+
             // WP 3.2 and below don't have the wp_preload_dialogs function
-            if((float) get_bloginfo('version') < 3.2) {
-		add_action('admin_footer', 'wp_tiny_mce_preload_dialogs');
+            if ((float) get_bloginfo('version') < 3.2) {
+                add_action('admin_footer', 'wp_tiny_mce_preload_dialogs');
             } else {
                 add_action('admin_footer', array(&$this, 'tinymce_preload_dialogs'));
             }
-            
+
             if (isset($this->actions['show_donate_box']) && $this->actions['show_donate_box']) {
                 add_action('admin_footer', array(&$this, 'donate_popup'));
             }
         }
-        
+
         /**
          * Alters some default TinyMCE Settings
          * Removes the wpfullscreen plugin so clicking the full-screen button activates the default TinyMCE Full-screen omde
@@ -73,7 +73,6 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
             return $settings;
         }
 
-      
         /**
          * Loads the necessary javascript files
          */
@@ -82,7 +81,7 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
             wp_enqueue_script('media-upload');
             wp_enqueue_script('wysiwyg-widgets', plugins_url('/backend/js/wysiwyg-widgets.js', dirname(__FILE__)), array('jquery', 'editor', 'thickbox', 'media-upload'), $this->version);
         }
-        
+
         /**
          * Loads the necessary stylesheet files
          */
@@ -129,7 +128,8 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
          */
         function tinymce_preload_dialogs() {
             // wp_preload_dialogs does not exist in WP 3.1 and below
-            if(function_exists('wp_preload_dialogs')) wp_preload_dialogs(array('plugins' => 'wpdialogs,wplink,wpfullscreen'));
+            if (function_exists('wp_preload_dialogs'))
+                wp_preload_dialogs(array('plugins' => 'wpdialogs,wplink,wpfullscreen'));
         }
 
         /**
@@ -144,12 +144,14 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
                     <h3>Like WYSIWYG Widgets?</h3>
                     <p>I noticed you've been using <?php echo $this->shortname; ?> for at least 30 days. This plugin cost me countless hours of work. If you use it, please donate a token of your appreciation!</p>
 
-                    <form id="dvk_donate" target="_blank" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <form id="dvk_donate" action="https://www.paypal.com/cgi-bin/webscr" method="post">
                         <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
-                        <input type="image" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                        <img alt="" border="0" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/nl_NL/i/scr/pixel.gif" width="1" height="1">
+                        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+                               ">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
                     </form>
+
                     <p>Alternatively, tweet about it so others find out about WYSIWYG Widgets.</p>
 
                     <div style="margin:10px 0; text-align:center;">
@@ -161,7 +163,7 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
             </div>
             <?php
         }
-        
+
         /**
          * Add link to DannyvanKooten.com to plugins overview page
          * @param array $links
@@ -196,7 +198,7 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
             }
 
             // Over 30 days? Not set to don't show? Show the damn thing.
-            if (!isset($opts['dontshowpopup']) && $opts['date_installed'] < strtotime('-30 days')) {
+            if (!isset($opts['dontshowpopup']) && $opts['date_installed'] > strtotime('-30 days')) {
                 // plugin has been installed for over 30 days
                 $this->actions['show_donate_box'] = true;
                 wp_enqueue_style('dvk_donate', plugins_url('/backend/css/donate.css', dirname(__FILE__)));
@@ -207,7 +209,7 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
         function remove_options() {
             delete_option('ww_options');
         }
-        
+
         /**
          * Adds the DvK.com dashboard widget, if user didn't remove it before.
          * @return type 
@@ -252,7 +254,7 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
             if (!$options['dontshow'])
                 wp_add_dashboard_widget('dvk_db_widget', 'Latest posts on DannyvanKooten.com', array(&$this, 'dashboard_widget'));
         }
-        
+
         /**
          * Helper function to format text in dashboard widget
          * @param string $text

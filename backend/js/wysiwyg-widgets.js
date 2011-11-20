@@ -1,3 +1,10 @@
+/**
+ * Note:
+ * 
+ * This code is heavily inspired by Marco and Fransesco from Black Media Studio and their TinyMCE Widget Plugin
+ * Have a look at it here: http://wordpress.org/extend/plugins/black-studio-tinymce-widget/
+ */
+
 var edCanvas;
 
 jQuery(document).ready(function(){

@@ -12,6 +12,8 @@ Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
 = WYSIWYG Widgets / Rich text Widgets =
 
+**Please back-up your widgets' content before updating from an older version**
+
 This plugin adds a widget of the type 'WYSIWYG Widget' to your widgets. This widget behaves exactly like the default WP Text Widget with the only difference being
 the WYSIWYG / rich-text editor and the ability to insert media into your widget. Everything works the same as are used to from the default post editor.
 

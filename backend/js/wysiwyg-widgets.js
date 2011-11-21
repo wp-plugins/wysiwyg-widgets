@@ -1,8 +1,7 @@
 /**
- * Note:
- * 
- * This code is heavily inspired by Marco and Fransesco from Black Media Studio and their TinyMCE Widget Plugin
+ * This code is heavily inspired by Marco and Francesco from Black Studio and their Black Studio TinyMCE Widget plugin
  * Have a look at it here: http://wordpress.org/extend/plugins/black-studio-tinymce-widget/
+ * http://www.blackstudio.it/
  */
 
 var edCanvas;

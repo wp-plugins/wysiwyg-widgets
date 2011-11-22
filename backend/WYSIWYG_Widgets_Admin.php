@@ -41,9 +41,7 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
 
             // WP 3.2 and below don't have the wp_preload_dialogs function
             if ((float) get_bloginfo('version') < 3.2) {
-                add_action('admin_footer', 'wp_tiny_mce_preload_dialogs');
-            } else {
-                add_action('admin_footer', array(&$this, 'tinymce_preload_dialogs'));
+                add_action('admin_print_footer_scripts', 'wp_tiny_mce_preload_dialogs');
             }
 
             if (isset($this->actions['show_donate_box']) && $this->actions['show_donate_box']) {
@@ -123,14 +121,6 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
             }
         }
 
-        /**
-         * Preload some TinyMCE dialogs, to get them working.
-         */
-        function tinymce_preload_dialogs() {
-            // wp_preload_dialogs does not exist in WP 3.1 and below
-            if (function_exists('wp_preload_dialogs'))
-                wp_preload_dialogs(array('plugins' => 'wpdialogs,wplink,wpfullscreen'));
-        }
 
         /**
          * This is called when someone has been using the plugin for over 30 days

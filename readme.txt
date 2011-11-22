@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce,fckeditor
 Requires at least: 2.8
 Tested up to: 3.2.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 
 Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
@@ -59,6 +59,9 @@ Yes, all the default options that you are used to from the post editor are avail
 1. The rich text / wysiwyg widget editor in action
 
 == Changelog ==
+
+= 1.1.1 =
+* Fixed problem with link dialog reloading page upon submit
 
 = 1.1 =
 * Changed the way WYSIWYG Widget works, no more overlay, just a WYSIWYG editor in your widget form.

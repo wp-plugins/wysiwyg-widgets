@@ -27,7 +27,7 @@ jQuery(document).ready(function(){
     /**
      * Get HTML value of WYSIWYG Editor for saving widget
      */
-    jQuery('input[id^=widget-wysiwyg_widgets_widget][id$=savewidget]').live('click', function(){
+    jQuery('div.widget:has(textarea.wwe_editor) input.widget-control-save').live('click', function(){
         var txt_area = jQuery('textarea.wwe_editor', jQuery(this).parents('form'));
         
         if (typeof(tinyMCE.get(txt_area.attr('id'))) == "object") {
@@ -35,6 +35,7 @@ jQuery(document).ready(function(){
         }
                  
         jQuery(this).unbind('ajaxSuccess').ajaxSuccess(function(e, x, s) {
+            console.log("Ajax succes");
             var txt_area = jQuery('textarea.wwe_editor', jQuery(this).parents('form'));
             WYSIWYG_Widgets.instantiate_editor(txt_area.attr('id'));
         });

@@ -6,8 +6,8 @@ if (!class_exists('WYSIWYG_Widgets_Widget')) {
         function __construct() {
             $widget_ops = array('classname' => 'wysiwyg_widget widget_text', 'description' => __('A widget with a WYSIWYG / Rich Text editor - supports media uploading'));
             $control_ops = array('width' => 560, 'height' => 400);
-
-            parent::__construct('wysiwyg_widgets_widget', 'WYSIWYG Widget', $widget_ops, $control_ops);
+			$id_base = 'wysiwyg_widget';
+            parent::__construct($id_base, 'WYSIWYG Widget', $widget_ops, $control_ops);
         }
 
         function widget($args, $instance) {

@@ -72,6 +72,7 @@ window.WYSIWYG_Widgets = {
         jQuery('#'+id).addClass("mceEditor");
         if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
             WYSIWYG_Widgets.deactivate_editor(id);
+			tinyMCE.init({ mode : "exact", theme : "advanced", theme_advanced_toolbar_location : "top" });
             tinyMCE.execCommand("mceAddControl", false, id);
         }
     },

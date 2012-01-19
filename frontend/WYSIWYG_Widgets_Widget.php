@@ -46,30 +46,21 @@ if (!class_exists('WYSIWYG_Widgets_Widget')) {
             $instance = wp_parse_args((array) $instance, array('title' => '', 'text' => '', 'type' => 'visual'));
             
             $title = strip_tags($instance['title']);
-            $text = esc_textarea($instance['text']);
+            $text = $instance['text'];
             $type = esc_textarea($instance['type']);
             
             ?>
-            
+            <span class="wysiwyg_widget"></span>
             <input id="<?php echo $this->get_field_id('type'); ?>" name="<?php echo $this->get_field_name('type'); ?>" class="wwe_type" type="hidden" value="<?php echo esc_attr($type); ?>" />
            
             <p>
                 <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
                 <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
             </p>
-            
-            <div class="wwe_toolbar">
-                <div class="wwe_toggle_buttons">
-                    <a id="widget-<?php echo $this->id_base; ?>-<?php echo $this->number; ?>-html"<?php if ($type == 'html') { ?> class="active"<?php } ?>><?php _e('HTML'); ?></a>
-                    <a id="widget-<?php echo $this->id_base; ?>-<?php echo $this->number; ?>-visual"<?php if ($type == 'visual') { ?> class="active"<?php } ?>><?php _e('Visual'); ?></a>
-                </div>
 
-                <div class="wwe_media_buttons">
-                    <?php do_action('media_buttons'); ?>
-                </div>
-            </div>
+
             <div class="wwe_container">
-                <textarea class="widefat wwe_editor" rows="16" cols="40" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
+                <?php wp_editor($text, $this->get_field_id('text'), array( 'textarea_name' => $this->get_field_name('text'), 'textarea_rows' => 25 )) ?>
             </div>
             
             <?php

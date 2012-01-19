@@ -34,41 +34,13 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
          * Adds the necessary hooks
          */
         function add_hooks() {
-            add_action("admin_head", array(&$this, "load_tiny_mce"));
+            #add_action("admin_head", array(&$this, "load_tiny_mce"));
             add_action('admin_print_scripts', array(&$this, "load_scripts"));
             add_action('admin_print_styles', array(&$this, 'load_styles'));
-            add_filter('tiny_mce_before_init', array(&$this, 'initialize_editor'), 20);
-
-            // WP 3.2 and below don't have the wp_preload_dialogs function
-            if ((float) get_bloginfo('version') < 3.2) {
-                add_action('admin_print_footer_scripts', 'wp_tiny_mce_preload_dialogs');
-            }
 
             if (isset($this->actions['show_donate_box']) && $this->actions['show_donate_box']) {
                 add_action('admin_footer', array(&$this, 'donate_popup'));
             }
-        }
-
-        /**
-         * Alters some default TinyMCE Settings
-         * Removes the wpfullscreen plugin so clicking the full-screen button activates the default TinyMCE Full-screen omde
-         * Removes the more button, since it's useless for widgets.
-         * @param array $settings The settings array
-         * @return array The altered settings array
-         */
-        function initialize_editor($settings) {
-            // Remove WP fullscreen mode and set the native tinyMCE fullscreen mode
-            $plugins = explode(',', $settings['plugins']);
-
-            if (isset($plugins['wpfullscreen'])) {
-                unset($plugins['wpfullscreen']);
-            }
-            if (!isset($plugins['fullscreen'])) {
-                $plugins[] = 'fullscreen';
-            }
-            $settings['plugins'] = join(',', $plugins);
-            $settings['theme_advanced_buttons1'] = str_replace(',wp_more', '', $settings['theme_advanced_buttons1']);
-            return $settings;
         }
 
         /**
@@ -87,40 +59,6 @@ if (!class_exists('WYSIWYG_Widgets_Admin')) {
             wp_enqueue_style('thickbox');
             wp_enqueue_style('wysiwyg-widgets', plugins_url('/backend/css/wysiwyg-widgets.css', dirname(__FILE__)));
         }
-
-        /**
-         * Load TinyMCE
-         * Workaround for people using Dean's FCK Editor
-         * @global object $current_user The current user
-         */
-        function load_tiny_mce() {
-            $temp_changed_rich_editing = false;
-
-            if (!function_exists('wp_tiny_mce'))
-                include_once( ABSPATH . 'wp-admin/includes/post.php' );
-
-            // Deans FCKeditor workaround
-            if (is_plugin_active('fckeditor-for-wordpress-plugin/deans_fckeditor.php')) {
-
-                global $current_user;
-                $current_user = wp_get_current_user();
-
-                $old_rich_editing_value = get_user_option('rich_editing', $current_user->id);
-
-                // Change rich_editing option
-                update_user_option($current_user->id, 'rich_editing', 'true', true);
-                $temp_changed_rich_editing = true;
-            }
-
-            remove_all_filters('mce_external_plugins');
-            wp_tiny_mce(false);
-
-            // if rich_editing value has been changed, reset it.
-            if ($temp_changed_rich_editing) {
-                update_user_option($current_user->id, 'rich_editing', $old_rich_editing_value, true);
-            }
-        }
-
 
         /**
          * This is called when someone has been using the plugin for over 30 days

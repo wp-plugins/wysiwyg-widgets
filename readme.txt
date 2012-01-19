@@ -2,9 +2,9 @@
 Contributors: DvanKooten
 Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce,fckeditor
-Requires at least: 2.8
+Requires at least: 3.3
 Tested up to: 3.3.1
-Stable tag: 1.1.2
+Stable tag: 1.2
 
 Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
@@ -12,10 +12,11 @@ Adds a WYSIWYG Widget with a rich text editor and media upload functions.
 
 = WYSIWYG Widgets / Rich text Widgets =
 
-**Please back-up your widgets' content before updating from an older version**
 
 This plugin adds a widget of the type 'WYSIWYG Widget' to your widgets. This widget behaves exactly like the default WP Text Widget with the only difference being
 the WYSIWYG / rich-text editor and the ability to insert media into your widget. Everything works the same as are used to from the default post editor.
+
+** WP 3.2.x users and below, please use [version 1.1.1](http://downloads.wordpress.org/plugin/wysiwyg-widgets.1.1.1.zip). For WP 3.3+ users, use the latest version! **
 
 **Features:**
 
@@ -59,6 +60,9 @@ Yes, all the default options that you are used to from the post editor are avail
 1. The rich text / wysiwyg widget editor in action
 
 == Changelog ==
+= 1.2 =
+* Updated the plugin for WP 3.3. Broke backwards compatibility (on purpose), so when running WP 3.2.x and below: stick with [version 1.1.1](http://downloads.wordpress.org/plugin/wysiwyg-widgets.1.1.1.zip).
+
 = 1.1.2 =
 * Temporary fix for WP 3.3+
 

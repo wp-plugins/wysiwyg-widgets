@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce,fckeditor
 Requires at least: 3.1
 Tested up to: 3.5
-Stable tag: 2
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,19 +47,15 @@ Don't you just miss the visual editor in WordPress' default text widgets? This p
 This plugin creates a custom post type "Widgets" where you can create widgets just like you would create posts. You can then show these "widget posts" by dragging a "WYSIWYG Widget" widget to one of your widget areas.
 
 = What does WYSIWYG stand for? =
-
 What You See Is What You Get
 
 = Can I switch between 'Visual' and 'HTML' mode with this plugin? =
-
 Yes, all the default options that you are used to from the post editor are available for the widget editor.
 
 = Will this plugin help me create widgets with images and links =
-
 Yes, you won't need to write a single line of HTML.
 
 = Is this plugin free? =
-
 Totally free, and it will always stay free. Donations are much appreciated though, I put a lot of time and effort in my plugins.
 
 == Screenshots ==
@@ -69,6 +65,7 @@ Totally free, and it will always stay free. Donations are much appreciated thoug
 3. Drag the WYSIWYG Widget widget to one of your widget areas and select the WYSIWYG Widget to show.
 
 == Changelog ==
+
 = 2.0 =
 * Total rewrite WITHOUT backwards compatibility. Please back-up your existing WYSIWYG Widgets before updating, you'll need to recreate them.
 

@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce,fckeditor
 Requires at least: 3.1
 Tested up to: 3.5
-Stable tag: 2.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,8 +20,8 @@ Don't you just miss the visual editor in WordPress' default text widgets? This p
 
 **Features:**
 
-* Insert media like images or video into your widgets
 * Create stunning widget content without having to know any HTML
+* Insert media like images or video into your widgets the way you are used to
 * Create easy lists in your widgets
 * Use WP Links dialog to easily link to any of your pages or posts from a widget
 * Use shortcodes inside your widget to benefit from other WP Plugins.
@@ -37,9 +37,9 @@ Don't you just miss the visual editor in WordPress' default text widgets? This p
 
 1. Upload the contents of wysiwyg-widgets.zip to your plugins directory.
 1. Activate the plugin
-1. Create a widget post.
-1. Drag the WYSIWYG Widgets widget to one of your widget areas and select which widget post to display.
-1. Enjoy your HTML formatted widget content!
+1. Create a WYSIWYG Widget "post" through the new menu item "WYSIWYG Widgets".
+1. Go to your Widgets page, drag an instance of the WYSIWYG Widgets widget to one of your widget areas and select which WYSIWYG Widget to display.
+1. Go to the front end of your website and enjoy your beautiful widget.
 
 == Frequently Asked Questions ==
 
@@ -56,7 +56,7 @@ Yes, all the default options that you are used to from the post editor are avail
 Yes, you won't need to write a single line of HTML.
 
 = Is this plugin free? =
-Totally free, and it will always stay free. Donations are much appreciated though, I put a lot of time and effort in my plugins.
+Totally free, and it will always stay free. Donations are much appreciated though, I put a lot of time and effort in my plugins. Consider [donating $10, $20 or $50](http://dannyvankooten.com/donate/) as a token of your appreciation.
 
 == Screenshots ==
 
@@ -66,11 +66,16 @@ Totally free, and it will always stay free. Donations are much appreciated thoug
 
 == Changelog ==
 
+= 2.0.1 =
+* Added: meta box in WYSIWYG Widget editor screen.
+* Added: debug messages for logged in administrators on frontend when no WYSIWYG Widget OR an invalid WYSIWYG Widget is selected.
+* Added: title is now optional for even more control. If empty, it won't be shown. You are now longer required to use the heading tag which is set in the widget options since you can use a heading in your post.
+
 = 2.0 =
-* Total rewrite WITHOUT backwards compatibility. Please back-up your existing WYSIWYG Widgets before updating, you'll need to recreate them.
+* Total rewrite WITHOUT backwards compatibility. Please back-up your existing WYSIWYG Widgets' content before updating, you'll need to recreate them. Don't drag them to "deactivated widgets", just copy & paste the HTML content somewhere.
 
 = 1.2 =
-* Updated the plugin for WP 3.3. Broke backwards compatibility (on purpose), so when running WP 3.2.x and below: stick with [version 1.1.1](http://downloads.wordpress.org/plugin/wysiwyg-widgets.1.1.1.zip).
+* Updated the plugin for WP 3.3. Broke backwards compatibility (on purpose), so when running WP 3.2.x and below: stick with [version 1.1.1](http://downloads.wordpress.org/plugin/wysiwyg-widgets.zip).
 
 = 1.1.2 =
 * Temporary fix for WP 3.3+

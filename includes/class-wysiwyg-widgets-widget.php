@@ -21,16 +21,31 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 	public function widget( $args, $instance ) {
 		extract( $args );
 		$id = $instance['wysiwyg-widget-id'];
+
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		$post = get_post($id);
-		$content = apply_filters('the_content', $post->post_content);
 
 		echo $before_widget;
-		
-		echo $before_title . $title . $after_title;
-		echo $content;
+		if(!empty($title)) { echo $before_title . $title . $after_title; }
+
+		if($post && !empty($id)) {
+			$content = apply_filters('the_content', $post->post_content);
+			echo $content;		
+		} else {
+			if(current_user_can('manage_options')) { ?>
+				<p style="color:red;">
+					<strong>ADMINS ONLY NOTICE:</strong>
+					<?php if(empty($id)) { ?>
+						Please select a WYSIWYG Widget post to show in this area.
+					<?php } else { ?>
+						No post found with ID <?php echo $id; ?>, please select an existing WYSIWYG Widget post.
+					<?php } ?>
+				</p>
+				<?php }
+		}
 
 		echo $after_widget;
+		
 	}
 
 	/**

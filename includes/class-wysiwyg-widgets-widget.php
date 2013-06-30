@@ -29,7 +29,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 		if(!empty($title)) { echo $before_title . $title . $after_title; }
 
 		if($post && !empty($id)) {
-			$content = apply_filters('the_content', $post->post_content);
+			$content = wpautop($post->post_content);
 			echo $content;		
 		} else {
 			if(current_user_can('manage_options')) { ?>

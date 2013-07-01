@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce,fckeditor
 Requires at least: 3.1
 Tested up to: 3.5
-Stable tag: 2.1
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,9 +65,12 @@ Totally free, and it will always stay free. Donations are much appreciated thoug
 3. Drag the WYSIWYG Widget widget to one of your widget areas and select the WYSIWYG Widget to show.
 
 == Changelog ==
+
+= 2.2 =
+* Fixed: shortcodes were not processed in v2.1.
+
 = 2.1 =
 * Fixed: Social sharing buttons showing up after widget content.
-* 
 
 = 2.0.1 =
 * Added: meta box in WYSIWYG Widget editor screen.

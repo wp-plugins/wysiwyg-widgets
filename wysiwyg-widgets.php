@@ -3,7 +3,7 @@
 Plugin Name: WYSIWYG Widgets
 Plugin URI: http://DannyvanKooten.com/wordpress-plugins/wysiwyg-widgets/
 Description: Adds a WYSIWYG Widget with a rich text editor and media upload functions.
-Version: 2.2
+Version: 2.2.1
 Author: Danny van Kooten
 Author URI: http://DannyvanKooten.com
 License: GPL2
@@ -25,8 +25,7 @@ License: GPL2
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-require_once 'includes/class-wysiwyg-widgets.php';
-require_once 'includes/class-wysiwyg-widgets-widget.php';
+require_once 'includes/WYSIWYG_Widgets.php';
+require_once 'includes/WYSIWYG_Widgets_Widget.php';
 
-$WYSIWYG_Widgets = new WYSIWYG_Widgets();
-$WYSIWYG_Widgets->init();
+new WYSIWYG_Widgets();

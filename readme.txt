@@ -3,7 +3,7 @@ Contributors: DvanKooten
 Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce,fckeditor
 Requires at least: 3.1
-Tested up to: 3.5
+Tested up to: 3.6.1
 Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

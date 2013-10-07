@@ -13,19 +13,19 @@ class WYSIWYG_Widgets
 	public function on_init_action()
 	{
 		$labels = array(
-		    'name' => 'WYSIWYG Widget',
-		    'singular_name' => 'WYSIWYG Widget',
+		    'name' => 'Widget Blocks',
+		    'singular_name' => 'Widget Block',
 		    'add_new' => 'Add New',
-		    'add_new_item' => 'Add New WYSIWYG Widget',
-		    'edit_item' => 'Edit Widget',
-		    'new_item' => 'New Widget',
-		    'all_items' => 'All Widgets',
-		    'view_item' => 'View  Widget',
-		    'search_items' => 'Search Widgets',
-		    'not_found' =>  'No widgets found',
-		    'not_found_in_trash' => 'No widgets found in Trash', 
+		    'add_new_item' => 'Add New Widget Block',
+		    'edit_item' => 'Edit Widget Block',
+		    'new_item' => 'New Widget Block',
+		    'all_items' => 'Widget Blocks',
+		    'view_item' => 'View Widget Block',
+		    'search_items' => 'Search Widget Blocks',
+		    'not_found' =>  'No widget blocks found',
+		    'not_found_in_trash' => 'No widget blocks found in Trash', 
 		    'parent_item_colon' => '',
-		    'menu_name' => ' WYSIWYG Widgets'
+		    'menu_name' => 'Widget Blocks'
 		  );
 		$args = array(
 			'public' => true,
@@ -35,7 +35,7 @@ class WYSIWYG_Widgets
 			'labels' => $labels,
 			'has_archive' => false,
 			'supports' => array('title', 'editor'),
-			'menu_position' => 100,
+			'show_in_menu' => 'themes.php',
 			'rewrite' => false
 		);
    		register_post_type( 'wysiwyg-widget', $args );
@@ -62,7 +62,10 @@ class WYSIWYG_Widgets
 	public function meta_donate_box($post)
 	{
 		?>
-			<p style="border: 2px solid green; font-weight:bold; background: #CFC; padding:5px; ">I spent countless hours developing (and offering support) for this plugin for FREE. If you like it, consider <a href="http://dannyvankooten.com/donate/">donating $10, $20 or $50</a> as a token of your appreciation.</p>
+			<div style=" background: #222; color:#eee; padding:20px; ">
+				<p>I spent countless hours developing and supporting this plugin.</p>
+				<p>If you like it, consider <a href="http://dannyvankooten.com/donate/">donating $10, $20 or $50</a> as a token of your appreciation.</p>
+			</div>
 		<?php
 	}
 }

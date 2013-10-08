@@ -8,7 +8,7 @@ Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily create advanced, good looking widgets with rich text editing and media upload functionality. Just like you're used to from WordPress' posts.
+Easily create beautiful widgets with rich text editing and media upload functionality. Just like you're used to from WordPress' posts.
 
 == Description ==
 

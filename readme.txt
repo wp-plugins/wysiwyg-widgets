@@ -8,61 +8,59 @@ Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily create advanced, good looking widgets with rich text editing and media upload functionality.
+Easily create advanced, good looking widgets with rich text editing and media upload functionality. Just like you're used to from WordPress' posts.
 
 == Description ==
 
 = WYSIWYG Widgets or rich text widgets =
 
-Don't you just miss the visual editor in WordPress' default text widgets? This plugin helps by letting you create rich text widgets just like you would create a post. You can use the visual editor to create beautiful HTML and even use the WordPress media upload functionality.
-
-**BACKWARDS COMPATIBILITY DROPPED IN VERSION 2, PLEASE BACK-UP YOUR WYSIWYG WIDGETS BEFORE UPGRADING**
+This plugin adds so called Widget Blocks to your website which you can easily show in a widget area. You can create or edit the widget blocks just like you would edit any post or page, with all the default WordPress editing functions enabled. Rich text editing, media uploading, it's all included.
 
 **Features:**
 
-* Create stunning widget content without having to know any HTML
-* Insert media like images or video into your widgets the way you are used to
-* Create easy lists in your widgets
+* Create stunning widget content without having to touch any HTML
+* Easily insert media into your widgets, just like you're used to
+* Add headers, lists, blockquotes and other HTML elements to your widgets without having to write the HTML for it
 * Use WP Links dialog to easily link to any of your pages or posts from a widget
-* Use shortcodes inside your widget to benefit from other WP Plugins.
+* Use shortcodes inside your widget to benefit from other WP Plugins
 
-**More info:**
+**More information**
 
 * [WYSIWYG Widgets](http://dannyvankooten.com/wordpress-plugins/wysiwyg-widgets/)
 * Check out more [WordPress plugins](http://dannyvankooten.com/wordpress-plugins/) by the same author
-* Follow Danny on Twitter for lightning fast support and updates: [@DannyvanKooten](http://twitter.com/dannyvankooten)
+* You should follow [@DannyvanKooten](http://twitter.com/dannyvankooten) on Twitter.
 * [Thank Danny for this plugin by donating $10, $20 or $50.](http://dannyvankooten.com/donate/)
 
 == Installation ==
 
 1. Upload the contents of wysiwyg-widgets.zip to your plugins directory.
 1. Activate the plugin
-1. Create a WYSIWYG Widget "post" through the new menu item "WYSIWYG Widgets".
-1. Go to your Widgets page, drag an instance of the WYSIWYG Widgets widget to one of your widget areas and select which WYSIWYG Widget to display.
+1. Create a Widget Block by going to *Appearance > Widget Blocks*
+1. Go to your Widgets page, drag the WYSIWYG Widget to one of your widget areas and select which Widget Block to display.
 1. Go to the front end of your website and enjoy your beautiful widget.
 
 == Frequently Asked Questions ==
 
 = What does this plugin do? =
-This plugin creates a custom post type "Widgets" where you can create widgets just like you would create posts. You can then show these "widget posts" by dragging a "WYSIWYG Widget" widget to one of your widget areas.
+This plugin creates a custom post type called "Widget Blocks" so you can create widget content just like you would create posts or pages. You can show these "Widget Blocks" by dragging a "WYSIWYG Widget" widget to one of your widget areas and selecting which widget block to display inside it.
 
-= What does WYSIWYG stand for? =
+= What does WYSIWYG mean? =
 What You See Is What You Get
 
 = Can I switch between 'Visual' and 'HTML' mode with this plugin? =
 Yes, all the default options that you are used to from the post editor are available for the widget editor.
 
 = Will this plugin help me create widgets with images and links =
-Yes, you won't need to write a single line of HTML.
+Yes.
 
 = Is this plugin free? =
-Totally free, and it will always stay free. Donations are much appreciated though, I put a lot of time and effort in my plugins. Consider [donating $10, $20 or $50](http://dannyvankooten.com/donate/) as a token of your appreciation.
+Yes, totally. Donations are appreciated though!
 
 == Screenshots ==
 
-1. Overview of created WYSIWYG Widgets
+1. Overview of created Widget Blocks
 2. Edit the content of a WYSIWYG Widget just like you are used to edit posts.
-3. Drag the WYSIWYG Widget widget to one of your widget areas and select the WYSIWYG Widget to show.
+3. Drag the WYSIWYG Widget to one of your widget areas and select the Widget Block to show.
 
 == Changelog ==
 

@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce,fckeditor
 Requires at least: 3.1
 Tested up to: 3.6.1
-Stable tag: 2.2.2
+Stable tag: 2.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,7 +35,7 @@ This plugin adds so called Widget Blocks to your website which you can easily sh
 
 1. Upload the contents of wysiwyg-widgets.zip to your plugins directory.
 1. Activate the plugin
-1. Create a Widget Block by going to *Appearance > Widget Blocks*
+1. Create a Widget Block by going to *Pages > Widget Blocks*
 1. Go to your Widgets page, drag the WYSIWYG Widget to one of your widget areas and select which Widget Block to display.
 1. Go to the front end of your website and enjoy your beautiful widget.
 
@@ -43,6 +43,9 @@ This plugin adds so called Widget Blocks to your website which you can easily sh
 
 = What does this plugin do? =
 This plugin creates a custom post type called "Widget Blocks" so you can create widget content just like you would create posts or pages. You can show these "Widget Blocks" by dragging a "WYSIWYG Widget" widget to one of your widget areas and selecting which widget block to display inside it.
+
+= Where do I create a Widget Block? =
+The plugin adds a menu to the *Pages* menu item. Just go to *Pages > Widget Blocks* and start creating beautiful widgets.
 
 = What does WYSIWYG mean? =
 What You See Is What You Get
@@ -63,6 +66,10 @@ Yes, totally. Donations are appreciated though!
 3. Drag the WYSIWYG Widget to one of your widget areas and select the Widget Block to show.
 
 == Changelog ==
+
+= 2.2.3 =
+* Moved menu item to pages to prevent capability problems
+* Removed WP SEO meta box from edit widget block screen
 
 = 2.2.2 =
 * Improved: UI improvements, cleaned up admin area.

@@ -36,7 +36,6 @@ class WYSIWYG_Widgets
 			'has_archive' => false,
 			'supports' => array('title', 'editor'),
 			'rewrite' => false,
-			'show_in_menu' => "edit.php?post_type=page",
 			'map_meta_cap' => true
 		);
 
@@ -67,7 +66,7 @@ class WYSIWYG_Widgets
 		?>
 			<div style=" background: #222; color:#eee; padding:20px; ">
 				<h4 style="margin-top:0;">Donate a token of your appreciation</h4>
-				<p>I spent countless hours developing and supporting this plugin.</p>
+				<p>I spent many hours developing and supporting this plugin.</p>
 				<p>If you like it, consider <a href="http://dannyvankooten.com/donate/">donating $10, $20 or $50</a> as a token of your appreciation.</p>
 			</div>
 			<div>

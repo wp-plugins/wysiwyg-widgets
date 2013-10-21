@@ -1,28 +1,28 @@
 === Plugin Name ===
 Contributors: DvanKooten
 Donate link: http://dannyvankooten.com/donate/
-Tags: widget,wysiwyg,wysiwyg widget,rich text,rich text widget,widget editor,text widget,visual widget,image widget,tinymce,fckeditor
+Tags: visual,tinymce,fckeditor,widget,widgets,rich text,wysiwyg,image widget,visual editor,html
 Requires at least: 3.1
-Tested up to: 3.6.1
-Stable tag: 2.2.3
+Tested up to: 3.7
+Stable tag: 2.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily create beautiful widgets with rich text editing and media upload functionality. Just like you're used to from WordPress' posts.
+Edit widget content using the default WordPress visual editor and media uploading functionality. Create widgets like you would create posts or pages.
 
 == Description ==
 
 = WYSIWYG Widgets or rich text widgets =
 
-This plugin adds so called Widget Blocks to your website which you can easily show in a widget area. You can create or edit the widget blocks just like you would edit any post or page, with all the default WordPress editing functions enabled. Rich text editing, media uploading, it's all included.
+This plugin adds so called Widget Blocks to your website which you can easily show in a widget area. You can create or edit the widget blocks just like you would edit any post or page, with all the default WordPress editing functions enabled. This has the huge benefit that you can use the visual editor to format your text, so you don't have to write any HTML anymore. You can even use media uploading to insert images etc. into your widget content.
 
 **Features:**
 
-* Create stunning widget content without having to touch any HTML
-* Easily insert media into your widgets, just like you're used to
-* Add headers, lists, blockquotes and other HTML elements to your widgets without having to write the HTML for it
+* Create beautiful widgets without writing any HTML
+* Easily insert media into your widget content
+* Add headers, lists, blockquotes and other HTML elements to your widgets using the WordPress visual editor
 * Use WP Links dialog to easily link to any of your pages or posts from a widget
-* Use shortcodes inside your widget to benefit from other WP Plugins
+* Use shortcodes inside your widgets
 
 **More information**
 
@@ -35,9 +35,9 @@ This plugin adds so called Widget Blocks to your website which you can easily sh
 
 1. Upload the contents of wysiwyg-widgets.zip to your plugins directory.
 1. Activate the plugin
-1. Create a Widget Block by going to *Pages > Widget Blocks*
-1. Go to your Widgets page, drag the WYSIWYG Widget to one of your widget areas and select which Widget Block to display.
-1. Go to the front end of your website and enjoy your beautiful widget.
+1. Create a Widget Block by going to *Widget Blocks > Add New*
+1. Go to *Appearance > Widgets*, drag the WYSIWYG Widget to one of your widget areas and select which Widget Block to display.
+1. *(Optional)* Go to the front-end of your website and enjoy your beautiful widget.
 
 == Frequently Asked Questions ==
 
@@ -67,7 +67,12 @@ Yes, totally. Donations are appreciated though!
 
 == Changelog ==
 
-= 2.2.3 =
+= 2.2.4 - October 21, 2013 =
+* Moved menu item back to its own menu item
+* Widget title now defaults to the title of the selected Widget Block
+* Some textual improvements
+
+= 2.2.3 - October 16, 2013 =
 * Moved menu item to pages to prevent capability problems
 * Removed WP SEO meta box from edit widget block screen
 

@@ -6,7 +6,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 		parent::__construct(
 	 		'wysiwyg_widgets_widget', // Base ID
 			'WYSIWYG Widget', // Name
-			array( 'description' => 'Select a rich-formatted widget block and show it in a widget area.' ) // Args
+			array( 'description' => 'Displays one of your Widget Blocks.' ) // Args
 		);
 	}
 
@@ -61,8 +61,18 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['wysiwyg-widget-id'] = $new_instance['wysiwyg-widget-id'];
+		$instance['title'] = strip_tags($new_instance['title']);
+
+		// grab title from widget block
+		if($instance['wysiwyg-widget-id']) {
+			$post = get_post($instance['wysiwyg-widget-id']);
+
+			if($post) {
+				$instance['title'] = $post->post_title;
+			}
+		}		
+
 		return $instance;
 	}
 
@@ -80,16 +90,14 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 			'numberposts' => -1
 		));
 
-		$title = isset($instance['title']) ? $instance['title'] : 'Just another WYSIWYG Widget';
+		$title = isset($instance['title']) ? $instance['title'] : '';
 		$selected_widget_id = (isset($instance['wysiwyg-widget-id'])) ? $instance['wysiwyg-widget-id'] : 0;
-
 		?>
-		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id( 'wysiwyg-widget-id' ); ?>"><?php _e( 'Widget Block:' ); ?></label> 
+
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="hidden" value="<?php echo esc_attr( $title ); ?>" />
+
+		<p>	
+			<label for="<?php echo $this->get_field_id( 'wysiwyg-widget-id' ); ?>"><?php _e( 'Widget Block to show:' ); ?></label> 
 			<select class="widefat" id="<?php echo $this->get_field_id('wysiwyg-widget-id'); ?>" name="<?php echo $this->get_field_name( 'wysiwyg-widget-id' ); ?>">
 				<option value="0" disabled <?php selected($selected_widget_id, 0); ?>><?php if(empty($posts)) { ?>No widget blocks found.<?php } else { ?>Select a widget block..<?php } ?></option>
 				<?php foreach($posts as $p) { ?>
@@ -98,8 +106,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 			</select>
 		</p>
 
-		<p class="help"><a href="edit.php?post_type=wysiwyg-widget">Manage your widget blocks here</a></p>
-		<p style="background:#222; color:#eee; padding:10px; ">If you like this plugin, consider <a href="http://dannyvankooten.com/donate/">donating $10, $20 or $50</a> as a token of your appreciation.</p>       
+		<p class="help">Manage your widget blocks <a href="edit.php?post_type=wysiwyg-widget">here</a></p>
 		<?php
 	}
 

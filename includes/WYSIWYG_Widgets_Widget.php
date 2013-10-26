@@ -23,11 +23,12 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 		$id = $instance['wysiwyg-widget-id'];
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
+		$show_title = (isset($instance['show_title']) && $instance['show_title']) ? 1 : 0;
 		$post = get_post($id);
 
 		echo $before_widget;
 
-		if(!empty($title)) { echo $before_title . $title . $after_title; }
+		if($show_title) { echo $before_title . $title . $after_title; }
 
 		if($post && !empty($id)) {
 			$content = $post->post_content;
@@ -63,6 +64,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 		$instance = array();
 		$instance['wysiwyg-widget-id'] = $new_instance['wysiwyg-widget-id'];
 		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['show_title'] = (isset($new_instance['show_title']) && $new_instance['show_title'] == 1) ? 1 : 0;
 
 		// grab title from widget block
 		if($instance['wysiwyg-widget-id']) {
@@ -91,10 +93,11 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 		));
 
 		$title = isset($instance['title']) ? $instance['title'] : '';
+		$show_title = (isset($instance['show_title']) && $instance['show_title']) ? 1 : 0;
 		$selected_widget_id = (isset($instance['wysiwyg-widget-id'])) ? $instance['wysiwyg-widget-id'] : 0;
 		?>
 
-		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="hidden" value="<?php echo esc_attr( $title ); ?>" />
+		<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="hidden" value="<?php echo esc_attr( $title ); ?>" />
 
 		<p>	
 			<label for="<?php echo $this->get_field_id( 'wysiwyg-widget-id' ); ?>"><?php _e( 'Widget Block to show:' ); ?></label> 
@@ -104,6 +107,10 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 					<option value="<?php echo $p->ID; ?>" <?php selected($selected_widget_id, $p->ID); ?>><?php echo $p->post_title; ?></option>
 				<?php } ?>
 			</select>
+		</p>
+
+		<p>
+			<label><input type="checkbox" id="<?php echo $this->get_field_id('show_title'); ?>" name="<?php echo $this->get_field_name('show_title'); ?>" value="1" <?php checked($show_title, 1); ?> /> <?php _e("Show title?", "wysiwyg-widgets"); ?></label>
 		</p>
 
 		<p class="help">Manage your widget blocks <a href="edit.php?post_type=wysiwyg-widget">here</a></p>

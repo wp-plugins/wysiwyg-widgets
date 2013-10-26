@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: visual,tinymce,fckeditor,widget,widgets,rich text,wysiwyg,image widget,visual editor,html
 Requires at least: 3.1
 Tested up to: 3.7
-Stable tag: 2.2.4
+Stable tag: 2.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,9 @@ Yes, totally. Donations are appreciated though!
 3. Drag the WYSIWYG Widget to one of your widget areas and select the Widget Block to show.
 
 == Changelog ==
+
+= 2.2.5 - October 26, 2013 =
+* Added checkbox option to widget to hide the title.
 
 = 2.2.4 - October 21, 2013 =
 * Moved menu item back to its own menu item

@@ -23,7 +23,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 		$id = $instance['wysiwyg-widget-id'];
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
-		$show_title = (isset($instance['show_title']) && $instance['show_title']) ? 1 : 0;
+		$show_title = (isset($instance['show_title'])) ? $instance['show_title'] : 1;
 		$post = get_post($id);
 
 		echo $before_widget;
@@ -34,7 +34,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 			$content = $post->post_content;
 			$content = do_shortcode($content);
 			$content = "\n<!-- Widget by WYSIWYG Widgets v". WYWI_VERSION_NUMBER ." - http://wordpress.org/plugins/wysiwyg-widgets/ -->\n" . wpautop($content) . "\n<!-- / WYSIWYG Widgets -->\n";
-			echo $content;		
+			echo apply_filters('ww_content', $content, $id);		
 		} elseif(current_user_can('manage_options')) { ?>
 				<p>
 					<?php if(empty($id)) { ?>
@@ -93,7 +93,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 		));
 
 		$title = isset($instance['title']) ? $instance['title'] : '';
-		$show_title = (isset($instance['show_title']) && $instance['show_title']) ? 1 : 0;
+		$show_title = (isset($instance['show_title'])) ? $instance['show_title'] : 1;
 		$selected_widget_id = (isset($instance['wysiwyg-widget-id'])) ? $instance['wysiwyg-widget-id'] : 0;
 		?>
 

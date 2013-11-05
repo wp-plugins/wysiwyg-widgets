@@ -6,7 +6,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 		parent::__construct(
 	 		'wysiwyg_widgets_widget', // Base ID
 			'WYSIWYG Widget', // Name
-			array( 'description' => 'Displays one of your Widget Blocks.' ) // Args
+			array( 'description' => __('Displays one of your Widget Blocks.', 'wysiwyg-widgets') ) // Args
 		);
 	}
 
@@ -20,28 +20,43 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 	 */
 	public function widget( $args, $instance ) {
 		extract( $args );
-		$id = $instance['wysiwyg-widget-id'];
+		$id = ($instance['wysiwyg-widget-id']) ? $instance['wysiwyg-widget-id'] : 0;
 
-		$title = apply_filters( 'widget_title', $instance['title'] );
 		$show_title = (isset($instance['show_title'])) ? $instance['show_title'] : 1;
 		$post = get_post($id);
 
 		echo $before_widget;
 
-		if($show_title) { echo $before_title . $title . $after_title; }
+		if(!empty($id) && $post) {
 
-		if($post && !empty($id)) {
+			if($show_title) { 
+				// first check $instance['title'] so titles are not changes for people upgrading from an older version of the plugin
+				// titles WILL change when they re-save their widget.. 
+				$title = (isset($instance['title'])) ? $instance['title'] : $post->post_title;
+				$title = apply_filters( 'widget_title', $title );
+			}
+
 			$content = $post->post_content;
 			$content = do_shortcode($content);
-			$content = "\n<!-- Widget by WYSIWYG Widgets v". WYWI_VERSION_NUMBER ." - http://wordpress.org/plugins/wysiwyg-widgets/ -->\n" . wpautop($content) . "\n<!-- / WYSIWYG Widgets -->\n";
-			echo apply_filters('ww_content', $content, $id);		
+			$content = wpautop($content);
+			$content = apply_filters('ww_content', $content, $id);
+
+			?>
+			
+			<!-- Widget by WYSIWYG Widgets v<?php echo WYWI_VERSION_NUMBER ?> - http://wordpress.org/plugins/wysiwyg-widgets/ -->
+			<?php echo $before_title . $title . $after_title; ?>
+			<?php echo $content; ?>
+			<!-- / WYSIWYG Widgets -->
+
+			<?php
+
 		} elseif(current_user_can('manage_options')) { ?>
 				<p>
-					<?php if(empty($id)) { ?>
-						Please select a widget block to show in this area.
-					<?php } else { ?>
-						No widget block found with ID <?php echo $id; ?>, please select an existing widget block in the widget settings.
-					<?php } ?>
+					<?php if(empty($id)) { 
+						_e('Please select a Widget Block to show in this area.', 'wysiwyg-widgets');
+					} else { 
+						printf(__('No widget block found with ID %d, please select an existing Widget Block in the widget settings.', 'wysiwyg-widgets'), $id);
+					} ?>
 				</p>
 		<?php 
 		}
@@ -63,18 +78,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['wysiwyg-widget-id'] = $new_instance['wysiwyg-widget-id'];
-		$instance['title'] = strip_tags($new_instance['title']);
 		$instance['show_title'] = (isset($new_instance['show_title']) && $new_instance['show_title'] == 1) ? 1 : 0;
-
-		// grab title from widget block
-		if($instance['wysiwyg-widget-id']) {
-			$post = get_post($instance['wysiwyg-widget-id']);
-
-			if($post) {
-				$instance['title'] = $post->post_title;
-			}
-		}		
-
 		return $instance;
 	}
 
@@ -92,17 +96,17 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 			'numberposts' => -1
 		));
 
-		$title = isset($instance['title']) ? $instance['title'] : '';
 		$show_title = (isset($instance['show_title'])) ? $instance['show_title'] : 1;
 		$selected_widget_id = (isset($instance['wysiwyg-widget-id'])) ? $instance['wysiwyg-widget-id'] : 0;
+		$title = ($selected_widget_id) ? get_the_title($selected_widget_id) : 'No widget block selected.';
 		?>
 
 		<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="hidden" value="<?php echo esc_attr( $title ); ?>" />
 
 		<p>	
-			<label for="<?php echo $this->get_field_id( 'wysiwyg-widget-id' ); ?>"><?php _e( 'Widget Block to show:' ); ?></label> 
-			<select class="widefat" id="<?php echo $this->get_field_id('wysiwyg-widget-id'); ?>" name="<?php echo $this->get_field_name( 'wysiwyg-widget-id' ); ?>">
-				<option value="0" disabled <?php selected($selected_widget_id, 0); ?>><?php if(empty($posts)) { ?>No widget blocks found.<?php } else { ?>Select a widget block..<?php } ?></option>
+			<label for="<?php echo $this->get_field_id( 'wysiwyg-widget-id' ); ?>"><?php _e( 'Widget Block to show:', 'wysiwyg-widgets' ); ?></label> 
+			<select class="widefat" id="<?php echo $this->get_field_id('wysiwyg-widget-id'); ?>" name="<?php echo $this->get_field_name( 'wysiwyg-widget-id' ); ?>" required>
+				<option value="0" disabled <?php selected($selected_widget_id, 0); ?>><?php if(empty($posts)) { _e('No widget blocks found', 'wysiwyg-widgets'); } else { _e('Select a widget block', 'wysiwyg-widgets'); } ?></option>
 				<?php foreach($posts as $p) { ?>
 					<option value="<?php echo $p->ID; ?>" <?php selected($selected_widget_id, $p->ID); ?>><?php echo $p->post_title; ?></option>
 				<?php } ?>
@@ -113,7 +117,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 			<label><input type="checkbox" id="<?php echo $this->get_field_id('show_title'); ?>" name="<?php echo $this->get_field_name('show_title'); ?>" value="1" <?php checked($show_title, 1); ?> /> <?php _e("Show title?", "wysiwyg-widgets"); ?></label>
 		</p>
 
-		<p class="help">Manage your widget blocks <a href="edit.php?post_type=wysiwyg-widget">here</a></p>
+		<p class="help"><?php printf(__('Manage your widget blocks %shere%s', 'wysiwyg-widgets'), '<a href="'. admin_url('edit.php?post_type=wysiwyg-widget') .'">', '</a>'); ?></p>
 		<?php
 	}
 

@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: visual,tinymce,fckeditor,widget,widgets,rich text,wysiwyg,image widget,visual editor,html
 Requires at least: 3.1
 Tested up to: 3.7
-Stable tag: 2.2.6
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,14 @@ Yes, totally. Donations are appreciated though!
 3. Drag the WYSIWYG Widget to one of your widget areas and select the Widget Block to show.
 
 == Changelog ==
+
+= 2.3 - November 5, 2013 =
+* Improved: Title now changes with the Widget Block, no widget re-save necessary
+* Improved: Minor code improvements
+* Improved: Removed all third-party meta boxes from Edit Widget Block screen.
+* Improved: Plugin is now translation ready
+* Added: Dutch translation
+
 = 2.2.6 - October 30, 2013 =
 * Fixed: Show title checkbox now defaults to a checked state.
 
@@ -159,6 +167,9 @@ Yes, totally. Donations are appreciated though!
 * Initial release
 
 == Upgrade Notice ==
+
+= 2.3 =
+Plugin is now translation-ready. Included Dutch translations, looking for more translators!
 
 = 2.0  =
 No backwards compatibility, please back-up your existing widgets before upgrading!

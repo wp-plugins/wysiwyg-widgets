@@ -3,8 +3,8 @@ Contributors: DvanKooten
 Donate link: http://dannyvankooten.com/donate/
 Tags: visual,tinymce,fckeditor,widget,widgets,rich text,wysiwyg,image widget,visual editor,html
 Requires at least: 3.1
-Tested up to: 3.7
-Stable tag: 2.3
+Tested up to: 3.7.1
+Stable tag: 2.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,22 +14,33 @@ Edit widget content using the default WordPress visual editor and media uploadin
 
 = WYSIWYG Widgets or rich text widgets =
 
-This plugin adds so called Widget Blocks to your website which you can easily show in a widget area. You can create or edit the widget blocks just like you would edit any post or page, with all the default WordPress editing functions enabled. This has the huge benefit that you can use the visual editor to format your text, so you don't have to write any HTML anymore. You can even use media uploading to insert images etc. into your widget content.
+This plugin adds so called "Widget Blocks" to your website which you can easily display in your widget areas. 
+
+You can create or edit the widget blocks just like you would edit any post or page, with all the default WordPress editing functions enabled. This way, you can use the visual editor that comes with WordPress to format your widgets. You can even use media uploading to insert images and so forth.
 
 **Features:**
 
-* Create beautiful widgets without writing any HTML
-* Easily insert media into your widget content
-* Add headers, lists, blockquotes and other HTML elements to your widgets using the WordPress visual editor
-* Use WP Links dialog to easily link to any of your pages or posts from a widget
-* Use shortcodes inside your widgets
+- Create beautiful widgets without having to write HTML code
+- Easily insert media into your widget content
+- Add headings, lists, blockquotes and other HTML elements to your widgets using the WordPress visual editor
+- Use WP Links dialog to easily link to any of your pages or posts from a widget
+- Use shortcodes inside your widgets
+- Translation ready
+
+**Translators**
+
+- Dutch (nl_NL) - [Danny van Kooten](http://dannyvankooten.com/)
+- Spanish (es_ES) - [Maria Ramos - WebHostingHub](http://webhostinghub.com/)
+- Looking for more.. :)
+
+If you have created your own language pack, or have an update of an existing one, you can send [gettext PO and MO files](http://codex.wordpress.org/Translating_WordPress) to me so that I can bundle it into WYSIWYG Widgets. You can [download the latest PO file here](http://plugins.svn.wordpress.org/wysiwyg-widgets/trunk/languages/wysiwyg-widgets.po).
 
 **More information**
 
-* [WYSIWYG Widgets](http://dannyvankooten.com/wordpress-plugins/wysiwyg-widgets/)
-* Check out more [WordPress plugins](http://dannyvankooten.com/wordpress-plugins/) by the same author
-* You should follow [@DannyvanKooten](http://twitter.com/dannyvankooten) on Twitter.
-* [Thank Danny for this plugin by donating $10, $20 or $50.](http://dannyvankooten.com/donate/)
+- [WYSIWYG Widgets](http://dannyvankooten.com/wordpress-plugins/wysiwyg-widgets/)
+- Check out more [WordPress plugins](http://dannyvankooten.com/wordpress-plugins/) by the same author
+- You should follow [@DannyvanKooten](http://twitter.com/dannyvankooten) on Twitter.
+- [Thank Danny for this plugin by donating $10, $20 or $50.](http://dannyvankooten.com/donate/)
 
 == Installation ==
 
@@ -66,6 +77,10 @@ Yes, totally. Donations are appreciated though!
 3. Drag the WYSIWYG Widget to one of your widget areas and select the Widget Block to show.
 
 == Changelog ==
+
+= 2.3.1 - November 6, 2013 =
+* Added: Spanish translations, thanks to [Maria Ramos from WebHostingHub](http://www.webhostinghub.com/)
+* Improved: Minor security and license improvements
 
 = 2.3 - November 5, 2013 =
 * Improved: Title now changes with the Widget Block, no widget re-save necessary

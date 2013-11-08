@@ -3,7 +3,7 @@
 Plugin Name: WYSIWYG Widgets
 Plugin URI: http://DannyvanKooten.com/wordpress-plugins/wysiwyg-widgets/
 Description: Adds a WYSIWYG Widget with a rich text editor and media upload functions.
-Version: 2.3.1
+Version: 2.3.2
 Author: Danny van Kooten
 Author URI: http://DannyvanKooten.com
 Text Domain: wysiwyg-widgets
@@ -30,7 +30,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define("WYWI_VERSION_NUMBER", "2.3.1");
+define("WYWI_VERSION_NUMBER", "2.3.2");
 define("WYWI_PLUGIN_DIR", plugin_dir_path(__FILE__)); 
 
 require_once WYWI_PLUGIN_DIR . 'includes/WYSIWYG_Widgets.php';

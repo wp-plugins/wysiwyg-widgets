@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: visual,tinymce,fckeditor,widget,widgets,rich text,wysiwyg,image widget,visual editor,html
 Requires at least: 3.1
 Tested up to: 3.7.1
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,9 @@ Yes, totally. Donations are appreciated though!
 3. Drag the WYSIWYG Widget to one of your widget areas and select the Widget Block to show.
 
 == Changelog ==
+
+= 2.3.2 - November 8, 2013 =
+* Improved: When `show_title` is false, (empty) title tags will not be displayed.
 
 = 2.3.1 - November 6, 2013 =
 * Added: Spanish translations, thanks to [Maria Ramos from WebHostingHub](http://www.webhostinghub.com/)

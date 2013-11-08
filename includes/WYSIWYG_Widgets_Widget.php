@@ -44,7 +44,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 			?>
 			
 			<!-- Widget by WYSIWYG Widgets v<?php echo WYWI_VERSION_NUMBER ?> - http://wordpress.org/plugins/wysiwyg-widgets/ -->
-			<?php echo $before_title . $title . $after_title; ?>
+			<?php if($show_title) { echo $before_title . $title . $after_title; } ?>
 			<?php echo $content; ?>
 			<!-- / WYSIWYG Widgets -->
 

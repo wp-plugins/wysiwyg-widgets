@@ -79,7 +79,7 @@ Yes, totally. Donations are appreciated though!
 
 == Changelog ==
 
-= 2.3.3 =
+= 2.3.3 - November 18, 2013 =
 * Added: Italian translations, thanks to [Tiziano D'Angelo](http://www.dangelos.it/)
 * Improved: Code loading
 * Improved: added empty index.php files to prevent directory listings

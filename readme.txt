@@ -4,7 +4,7 @@ Donate link: http://dannyvankooten.com/donate/
 Tags: visual,tinymce,fckeditor,widget,widgets,rich text,wysiwyg,image widget,visual editor,html
 Requires at least: 3.1
 Tested up to: 3.7.1
-Stable tag: 2.3.2
+Stable tag: 2.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,7 @@ You can create or edit the widget blocks just like you would edit any post or pa
 
 - Dutch (nl_NL) - [Danny van Kooten](http://dannyvankooten.com/)
 - Spanish (es_ES) - [Maria Ramos - WebHostingHub](http://webhostinghub.com/)
+- Italian (it_IT) - [Tiziano D'Angelo - Studio D'Angelo](http://www.dangelos.it/)
 - Looking for more.. :)
 
 If you have created your own language pack, or have an update of an existing one, you can send [gettext PO and MO files](http://codex.wordpress.org/Translating_WordPress) to me so that I can bundle it into WYSIWYG Widgets. You can [download the latest PO file here](http://plugins.svn.wordpress.org/wysiwyg-widgets/trunk/languages/wysiwyg-widgets.po).
@@ -77,6 +78,12 @@ Yes, totally. Donations are appreciated though!
 3. Drag the WYSIWYG Widget to one of your widget areas and select the Widget Block to show.
 
 == Changelog ==
+
+= 2.3.3 =
+* Added: Italian translations, thanks to [Tiziano D'Angelo](http://www.dangelos.it/)
+* Improved: Code loading
+* Improved: added empty index.php files to prevent directory listings
+* Improved: all default WordPress' post filters are now applied to the widget content as well. 
 
 = 2.3.2 - November 8, 2013 =
 * Improved: When `show_title` is false, (empty) title tags will not be displayed.

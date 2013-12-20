@@ -5,7 +5,7 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 	public function __construct() {
 		parent::__construct(
 	 		'wysiwyg_widgets_widget', // Base ID
-			'WYSIWYG Widget', // Name
+			'Widget Blocks Widget', // Name
 			array( 'description' => __('Displays one of your Widget Blocks.', 'wysiwyg-widgets') ) // Args
 		);
 
@@ -13,8 +13,8 @@ class WYSIWYG_Widgets_Widget extends WP_Widget
 		add_filter( 'ww_content', 'convert_smilies' );
 		add_filter( 'ww_content', 'convert_chars' );
 		add_filter( 'ww_content', 'wpautop' );
-		add_filter( 'ww_content', 'do_shortcode' );
 		add_filter( 'ww_content', 'shortcode_unautop' );
+		add_filter( 'ww_content', 'do_shortcode', 11);
 	}
 
  	/**

@@ -33,8 +33,7 @@ function wywi_register_post_type()	{
 		'public' => false,
 		'show_ui' => true,
 		'labels' => $labels,
-		'supports' => array('title', 'editor'),
-		'map_meta_cap' => true
+		'supports' => array('title', 'editor')
 	);
 
    	register_post_type( 'wysiwyg-widget', $args );

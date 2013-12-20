@@ -5,7 +5,21 @@ class WYSIWYG_Widgets_Admin
 
 	public function __construct()
 	{
+		//add_action('init', array($this, 'add_caps') );
 		add_action( 'add_meta_boxes', array($this, 'add_meta_box'), 20 );
+	}
+
+	public function add_caps() {
+		$caps_version = '1.1';
+
+		// did we add the caps already?
+		if( version_compare(get_option('wywi_caps_version', 0), $caps_version, '>=') ) {
+			return;
+		}
+		
+		$role = get_role('administrator');
+		$role->add_cap('edit_widget_block');
+		//update_option('wywi_caps_version', $caps_version);
 	}
 
 	public function add_meta_box()

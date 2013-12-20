@@ -3,8 +3,8 @@ Contributors: DvanKooten
 Donate link: http://dannyvankooten.com/donate/
 Tags: visual,tinymce,fckeditor,widget,widgets,rich text,wysiwyg,image widget,visual editor,html
 Requires at least: 3.1
-Tested up to: 3.7.1
-Stable tag: 2.3.3
+Tested up to: 3.8
+Stable tag: 2.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,10 @@ Yes, totally. Donations are appreciated though!
 3. Drag the WYSIWYG Widget to one of your widget areas and select the Widget Block to show.
 
 == Changelog ==
+
+= 2.3.4 - December 20, 2013 =
+* Fixed: Paragraphs inside or after shortcodes
+* Improved: Changed widget name for more consistency
 
 = 2.3.3 - November 18, 2013 =
 * Added: Italian translations, thanks to [Tiziano D'Angelo](http://www.dangelos.it/)
